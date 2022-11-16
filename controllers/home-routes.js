@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         })
         const socialPost = socialData.map((post) =>
             post.get({ plain: true }));
-res.json(socialPost)
+        res.json(socialPost)
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
