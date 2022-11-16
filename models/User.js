@@ -17,7 +17,15 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
 
-        }
+        },
+        display_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
+          bio: {
+            type: DataTypes.STRING,
+            allowNull: false,
+          },
     },
     {
         sequelize
