@@ -10,6 +10,10 @@ Post.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        post_title:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         post_body:{
             type: DataTypes.STRING,
             allowNull: false
@@ -25,7 +29,8 @@ Post.init(
       }
     },
     {
-        sequelize
+        sequelize,
+        timestamps: true,
     }
 );
 

@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-// const session = require('express-session');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 // Initializes Sequelize with session store
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -11,6 +11,14 @@ const helpers = require('./utils/helpers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const sess = {
+    secret: 'Super secret secret',
+    resave: false,
+    saveUninitialized: true,
+};
+
+app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
@@ -24,25 +32,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
-    )
-  );
+    app.listen(PORT, () =>
+        console.log(
+            `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account!`
+        )
+    );
 });
 
 
 // copy and paste to create a connection to test routes
 
 
-//schema first
-//models
-//server.js with sequelize sync
+//schema first-- done
+//models  -- done i think
+//server.js with sequelize sync-- done but think i need session store set up to time out my session
+
+//routes-- working on this now
+
 //test to make sure it will run
 //seeds cuz now it will take information
 
 
-//routes
+
 
 
 //final step is front end
