@@ -1,15 +1,18 @@
-//edit all of this to match code i write
+
 
 const sequelize = require('../config/connection');
-const seedGallery = require('./galleryData');
-const seedPaintings = require('./paintingData');
+const seedComments = require('./commentData');
+const seedUsers = require('./userData');
+const seedPosts = require('./postData');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
-  await seedGallery();
+  await seedComments();
 
-  await seedPaintings();
+  await seedUsers();
+
+  await seedPosts();
 
   process.exit(0);
 };
