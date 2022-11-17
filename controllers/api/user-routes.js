@@ -1,23 +1,19 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// router.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
 
-//   try {
-//     const userData = await User.findAll({
-//       include: [{
-//         model: User
-//       }]
-//     })
-//     const users = userData.map((user) =>
-//       user.get({ plain: true }));
-//     res.status(200).json(users);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
+  try {
+    const userData = await User.findAll()
+    const users = userData.map((user) =>
+      user.get({ plain: true }));
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 
-// });
+});
 
 
 // CREATE new user
@@ -30,7 +26,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-
+//usersession needs username= newUser give nuwUser ID
       res.status(200).json(dbUserData);
     });
   } catch (err) {
