@@ -26,7 +26,8 @@ User.init(
         },
         bio: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: "why no bio?"
         },
 
 
