@@ -39,21 +39,3 @@ sequelize.sync({ force: false }).then(() => {
     );
 });
 
-
-// copy and paste to create a connection to test routes
-
-
-//schema first-- done
-//models  -- done i think
-//server.js with sequelize sync-- done but think i need session store set up to time out my session
-
-//routes-- working on this now
-
-//test to make sure it will run
-//seeds cuz now it will take information
-
-
-
-
-
-//final step is front end

@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Comment, Post, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 //GET all from homepage
-router.get('/', async (req, res) => {
+router.get('/',  async (req, res) => {
 
     try {
         const socialData = await Post.findAll({
@@ -26,9 +27,14 @@ console.log(socialPost)
 
 
 
-
-router.get('/login', async (req, res) => {
-    res.render('login')})
+  router.get('/login', async (req, res) => {
+    try {
+      res.render('login');
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 
 
