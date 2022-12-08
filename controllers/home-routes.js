@@ -3,7 +3,7 @@ const { Comment, Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET all from homepage
-router.get('/', withAuth,  async (req, res) => {
+router.get('/',   async (req, res) => {
 
     try {
         const socialData = await Post.findAll({
@@ -23,6 +23,27 @@ console.log(socialPost)
         res.status(500).json(err);
     }
 
+});
+
+
+
+router.get('/dashboard', withAuth,  async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: { user_id: req.session.user_id },
+    });
+    const post = postData.map((post) => post.get({ plain: true }));
+    console.log(post);
+    res.render('dashboard', {
+      layout: 'main',
+      post,
+      loggedIn: req.session.loggedIn,
+    });
+    console.log(req.session.user_id);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 

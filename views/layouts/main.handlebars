@@ -1,3 +1,4 @@
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +13,16 @@
   </header>
   <nav>
     <a href="/">Home</a>
-    <button id="logout" class="btn-no-style"><a href="/logout"></a>Logout</button>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+       <a href="/dashboard">dashboard</a>
   </nav>
   <main>
     <aside>
-      <h2>Tech BLOG!</h2>
+     <h2 id="aside-text">What's happening in the world of tech??</h2>
     </aside>
     <div class="gallery">
       {{{body}}}

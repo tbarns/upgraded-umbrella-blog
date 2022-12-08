@@ -1,0 +1,12 @@
+{{#each post}}
+<div class="card">
+    <div class="card-header">
+        <h2><a href="/api/post/{{id}}">{{post_title}}</a></h2>
+    </div>
+    <div>
+        <p>{{post_body}}</p>
+        <p>posted by: {{user.display_name}}</p>
+    </div>
+    </div>
+
+{{/each}}
