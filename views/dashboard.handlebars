@@ -1,3 +1,5 @@
+
+<div class="post-list">
 {{#each post}}
 <div class="card">
     <div class="card-header">
@@ -7,6 +9,31 @@
         <p>{{post_body}}</p>
         <p>posted by: {{user.display_name}}</p>
     </div>
-    </div>
-
+</div>
+</div>
 {{/each}}
+<div class='row'>
+    <h2 class='title-2'>Create a new post</h2>
+</div>
+<div class='upload-page'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-2'>
+                <div class='upload-form-container'>
+                    <div class='form-btn'>
+
+                    </div>
+                    <form id='uploadForm'>
+                        <input name='title' type='text' placeholder='Title' id='Title' />
+
+                        <input name='body' type='text' placeholder='body' id='body' />
+                       
+
+                        <button type='Upload' id="btn" class='btn'>Upload</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='./js/dashboard.js'></script>

@@ -21,5 +21,25 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 
+  router.post('/', async (req, res) => {
+    try {
+      const postData = await Post.create({
+        post_title: req.body.post_title,
+        post_body: req.body.post_body,
+      
+      });
+  console.log(postData)
+      req.session.save(() => {
+        res.status(200).json({ user: postData, message: 'Postmates' });
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
+
+
+
 });
 module.exports = router;
