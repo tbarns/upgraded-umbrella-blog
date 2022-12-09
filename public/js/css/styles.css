@@ -147,3 +147,15 @@ nav a:hover {
 #aside-text {
 color: var(--brown);
 }
+
+.upload-page{
+  background-color: var(--green);
+}
+
+#uploadForm {
+  background-color: var(--green);
+}
+#body, #title {
+ width: 500px; 
+ 
+}
