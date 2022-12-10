@@ -20,7 +20,7 @@ I was tasked to create a blog application from scratch that used server side sto
 
 ## Installation 
 here is a link to the deployed site 
-
+https://shielded-shore-70821.herokuapp.com/
 ## Usage
 users can log in to add posts or comments.  of FIrst time users can sign up.
 
